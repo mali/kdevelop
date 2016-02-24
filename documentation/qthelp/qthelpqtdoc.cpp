@@ -59,7 +59,7 @@ void QtHelpQtDoc::registerDocumentations()
         QProcess *p = new QProcess;
         p->setProcessChannelMode(QProcess::MergedChannels);
         p->setProgram(qmake);
-        p->setArguments(QStringList("-query") << "QT_INSTALL_DOCS");
+        p->setArguments(QStringList(QStringLiteral("-query QT_INSTALL_DOCS")));
         p->start();
         connect(p, static_cast<void(QProcess::*)(int)>(&QProcess::finished), this, &QtHelpQtDoc::lookupDone);
     }
